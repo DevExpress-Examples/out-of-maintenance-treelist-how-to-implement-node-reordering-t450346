@@ -1,0 +1,60 @@
+﻿@using NodeReorder.Models
+@model List<SampleDataItem>
+
+@{
+    var treeList = Html.DevExpress().TreeList(settings => {
+        settings.Name = "TreeList";
+
+        settings.CallbackRouteValues = new { Controller = "Home", Action = "TreeListAction" };
+        settings.CustomActionRouteValues = new { Controller = "Home", Action = "TreeListCustomAction" };
+        settings.SettingsEditing.NodeDragDropRouteValues = new { Controller = "Home", Action = "TreeListNodeMove" };
+
+        settings.Width = Unit.Pixel(300);
+
+        settings.KeyFieldName = "Key";
+        settings.ParentFieldName = "ParentKey";
+        settings.Columns.Add(
+            column => {
+                column.FieldName = "Title";
+            }
+        );
+        settings.Columns.Add(
+            column => {
+                column.FieldName = "Key";
+            }
+        );
+
+
+
+        settings.SettingsPager.Visible = true;
+        settings.SettingsSelection.Enabled = false;
+
+        settings.ClientSideEvents.Init = string.Format(
+            "function (s, e) {{ s.reorderHelper = new ReorderHelper(s, '{0}', '{1}'); }}",
+            Url.Content("~/Content/Images/004_54.gif"),
+            Url.Content("~/Content/Images/004_32.gif")
+            );
+
+        settings.Styles.Node.CssClass = "tree-node";
+        settings.Settings.GridLines = GridLines.Both;
+
+        settings.SettingsBehavior.AllowSort = false;
+
+
+
+        settings.Init = (s, e) => {
+            (s as ASPxTreeList).SettingsEditing.AllowNodeDragDrop = true;
+
+        };
+
+        settings.PreRender = (s, e) => {
+            (s as MVCxTreeList).ExpandToLevel(3);
+        };
+
+        settings.CustomJSProperties = (s, e) => {
+            var tree = (MVCxTreeList)s;
+            e.Properties["cpSiblingKeys"] = tree.GetAllNodes().ToDictionary(n => n.Key, n => n.ParentNode.ChildNodes.OfType<TreeListNode>().Select(c => c.Key));
+        };
+    });
+}
+@treeList.Bind(Model).GetHtml()
