@@ -1,3 +1,12 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/NodeReorder/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/NodeReorder/Controllers/HomeController.vb))
+* [DataHelper.cs](./CS/NodeReorder/Models/DataHelper.cs) (VB: [DataHelper.vb](./VB/NodeReorder/Models/DataHelper.vb))
+* [ReorderHelper.js](./CS/NodeReorder/Scripts/ReorderHelper.js) (VB: [ReorderHelper.js](./VB/NodeReorder/Scripts/ReorderHelper.js))
+* [_TreeListPartial.cshtml](./CS/NodeReorder/Views/Home/_TreeListPartial.cshtml)
+* [Index.cshtml](./CS/NodeReorder/Views/Home/Index.cshtml)
+<!-- default file list end -->
 # TreeList - How to implement node reordering
 
 
