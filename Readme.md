@@ -8,6 +8,9 @@
 * [Index.cshtml](./CS/NodeReorder/Views/Home/Index.cshtml)
 <!-- default file list end -->
 # TreeList - How to implement node reordering
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/t450346)**
+<!-- run online end -->
 
 
 <p>Currently, the TreeList extension only allows node insertion (a modification of the current node's parent node). <br>This example demonstrates how to implement node reordering and also provides the implementation of custom reorder/insert icons. <br><br>Here is how you can implement this scenario
