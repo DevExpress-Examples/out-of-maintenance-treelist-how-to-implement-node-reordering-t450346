@@ -9,7 +9,7 @@
 <!-- default file list end -->
 # TreeList - How to implement node reordering
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t450346)**
+**[[Run Online]](https://codecentral.devexpress.com/t450346/)**
 <!-- run online end -->
 
 
